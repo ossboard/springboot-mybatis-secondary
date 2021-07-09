@@ -1,0 +1,28 @@
+spring:
+  aop:
+    auto: true
+    proxy-target-class: true
+  datasource:
+    hikari:
+      primary:
+        driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+        jdbc-url: 'jdbc:log4jdbc:oracle:thin:@127.0.0.1:1521:xe'
+        username: test1
+        password: test1
+        auto-commit: true
+        maximum-pool-size: 10
+      secondary:
+        driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+        jdbc-url: 'jdbc:log4jdbc:oracle:thin:@127.0.0.1:1521:xe'
+        username: test2
+        password: test2
+        auto-commit: true
+        maximum-pool-size: 10
+
+mybatis:
+  config-location: 'classpath:mybatis/mybatis-config.xml'
+  mapper-locations: 'mybatis/oracle/*.xml'
+
+logging:
+  file:
+    path: ../logs
